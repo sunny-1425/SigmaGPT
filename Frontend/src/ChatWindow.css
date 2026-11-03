@@ -1,0 +1,249 @@
+
+.chatWindow {
+  background-color: #212121;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* navbar */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar span {
+  margin: 1rem 2rem;
+}
+
+.userIconDiv {
+  margin: 1rem 2rem;
+}
+
+.userIcon {
+  background-color: #339cff;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* chat input */
+
+.chatInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputBox {
+  width: 100%;
+  position: relative;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  font-size: 0.8rem;
+  border-radius: 14px;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0 54px 55px,
+    rgba(0, 0, 0, 0.05) 0 -12px 30px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px,
+    rgba(0, 0, 0, 0.05) 0 12px 3px,
+    rgba(0, 0, 0, 0.05) 0 -3px 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+#submit {
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#submit i:hover {
+  color: #fff;
+}
+
+.info {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  color: #b4b4b4;
+}
+
+/* dropdown */
+
+.dropDown {
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  z-index: 100;
+  background: #303030;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 150px;
+  min-width: 150px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dropDown p {
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.dropDown button {
+  position: relative;
+  display: block;
+  width: 85%;
+  box-sizing: border-box;
+  padding: 9px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  margin: 0 auto 8px;
+}
+
+.dropDown .settingsButton {
+  background: #444;
+}
+
+.dropDown .logoutButton {
+  background: #10a37f;
+  margin: 0 auto;
+}
+
+.dropDown button i {
+  position: absolute;
+  left: 10px;
+}
+
+/* settings modal */
+
+.settingsOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.settingsModal {
+  background: #202020;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.settingsModalHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.settingsModalHeader h2 {
+  margin: 0;
+}
+
+.settingsCloseButton {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* settings form */
+
+.settingsInput {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  margin: 8px 0 20px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #303030;
+  color: white;
+}
+
+.settingsError {
+  color: #ff7777;
+}
+
+.saveSettingsButton {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #10a37f;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.saveSettingsButton:disabled {
+  cursor: not-allowed;
+}
+
+/* chat error */
+
+.chatError {
+  color: #ff7777;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* existing dropdown item styles */
+
+.dropDownItem {
+  font-size: 0.9rem;
+  margin: 0.3rem 0rem;
+  padding: 0.5rem 0.2rem;
+  cursor: pointer;
+}
+
+.dropDownItem:hover {
+  background-color: rgba(180, 180, 180, 0.1);
+  border-radius: 6px;
+}
