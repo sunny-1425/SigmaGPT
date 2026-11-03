@@ -1,6 +1,9 @@
+
 import { useState, useContext } from "react";
 import { MyContext } from "./MyContext.jsx";
 import "./Auth.css";
+
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 const Auth = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -43,7 +46,7 @@ const Auth = () => {
             : formData;
 
         try {
-            const response = await fetch(endpoint, {
+            const response = await fetch(`${API_BASE_URL}${endpoint}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

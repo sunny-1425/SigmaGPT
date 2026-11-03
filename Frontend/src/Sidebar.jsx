@@ -1,7 +1,10 @@
+
 import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
+
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 function Sidebar() {
     const {
@@ -20,7 +23,7 @@ function Sidebar() {
     // Get all threads of the logged-in user
     const getAllThreads = async () => {
         try {
-            const response = await fetch("/api/thread", {
+            const response = await fetch(`${API_BASE_URL}/api/thread`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
@@ -71,7 +74,7 @@ function Sidebar() {
     const changeThread = async (newThreadId) => {
         try {
             const response = await fetch(
-                `/api/thread/${newThreadId}`,
+                `${API_BASE_URL}/api/thread/${newThreadId}`,
                 {
                     headers: {
                         "Authorization": `Bearer ${token}`
@@ -104,7 +107,7 @@ function Sidebar() {
     const deleteThread = async (threadId) => {
         try {
             const response = await fetch(
-                `/api/thread/${threadId}`,
+                `${API_BASE_URL}/api/thread/${threadId}`,
                 {
                     method: "DELETE",
                     headers: {

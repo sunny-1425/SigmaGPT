@@ -5,6 +5,8 @@ import { MyContext } from "./MyContext.jsx";
 import { useContext, useState } from "react";
 import { ScaleLoader } from "react-spinners";
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
 function ChatWindow() {
   const {
     prompt,
@@ -56,7 +58,7 @@ function ChatWindow() {
     };
 
     try {
-      const response = await fetch("/api/chat", options);
+      const response = await fetch(`${API_BASE_URL}/api/chat`, options);
       const data = await response.json();
 
       if (response.status === 401) {
@@ -132,7 +134,7 @@ function ChatWindow() {
     setSettingsError("");
 
     try {
-      const response = await fetch("/api/auth/update", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/update`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
