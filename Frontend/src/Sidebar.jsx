@@ -1,8 +1,8 @@
-
 import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
+import blacklogo from "./assets/blacklogo.png";
 
 const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
@@ -20,7 +20,6 @@ function Sidebar() {
         logout
     } = useContext(MyContext);
 
-    // Get all threads of the logged-in user
     const getAllThreads = async () => {
         try {
             const response = await fetch(`${API_BASE_URL}/api/thread`, {
@@ -54,14 +53,12 @@ function Sidebar() {
         }
     };
 
-    // Fetch threads when the user logs in
     useEffect(() => {
         if (token) {
             getAllThreads();
         }
     }, [token]);
 
-    // Create a new chat
     const createNewChat = () => {
         setNewChat(true);
         setPrompt("");
@@ -70,7 +67,6 @@ function Sidebar() {
         setPrevChats([]);
     };
 
-    // Open an existing thread
     const changeThread = async (newThreadId) => {
         try {
             const response = await fetch(
@@ -103,7 +99,6 @@ function Sidebar() {
         }
     };
 
-    // Delete a thread
     const deleteThread = async (threadId) => {
         try {
             const response = await fetch(
@@ -145,7 +140,7 @@ function Sidebar() {
 
             <button onClick={createNewChat}>
                 <img
-                    src="src/assets/blacklogo.png"
+                    src={blacklogo}
                     alt="SigmaGPT logo"
                     className="logo"
                 />
