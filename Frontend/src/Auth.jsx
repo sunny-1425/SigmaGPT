@@ -1,4 +1,3 @@
-
 import { useState, useContext } from "react";
 import { MyContext } from "./MyContext.jsx";
 import "./Auth.css";
